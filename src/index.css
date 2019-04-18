@@ -12,3 +12,198 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+
+/*beginning of smoke animation styling*/
+body {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+.blink_me {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+#wrap {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+#viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#viewport .smoke {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: url('http://res.cloudinary.com/da51wkm4r/image/upload/v1461143297/title/smoke.png') no-repeat;
+}
+
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+
+
+
+
+.experienceBlocks{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  width: 301px;
+  color: white;
+  font-family: 'Abel';
+  z-index: 10;
+}
+
+.experienceBlocks a {
+  width: 100%;
+}
+
+.experienceBlocks img{
+  height: 100%;
+}
+
+.experienceBlocks p{
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  text-shadow: 2px 2px #000000;
+}
+
+.experienceBlocks h3 {
+  font-size: 30px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px #000000;
+  text-transform: uppercase;
+}
+
+
+.image1 {
+  position: relative;
+  height: 301px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #0066ff;
+}
+
+.image1 span{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.image1 span:nth-child(1) {
+  transform:rotate(0deg);
+  left: -50%;
+}
+
+.image1 span:nth-child(2) {
+  transform:rotate(90deg);
+  top: -50%;
+}
+
+.image1 span:nth-child(3) {
+  transform:rotate(180deg);
+  left: 50.5%;
+}
+
+.image1 span:nth-child(4) {
+  transform:rotate(270deg);
+  top: 50%;
+}
+
+.image1 span:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #4C94FF;
+  animation: animate 12s linear infinite;
+}
+
+
+@keyframes animate {
+  0% {
+  transform:scaleX(0);
+  transform-origin: left;
+  }
+
+  50% {
+  transform:scaleX(1);
+  transform-origin: left;
+  }
+
+  50.1% {
+  transform:scaleX(1);
+  transform-origin: right;
+  }
+  
+  100% {
+  transform:scaleX(0);
+  transform-origin: right;
+  }  
+} 
+

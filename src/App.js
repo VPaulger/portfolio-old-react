@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+//react router
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+
+//material-ui
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
+
+//components
+import LandingPage from './LandingPage'
+import About from './About'
+import Experience from './Experience'
+import Contact from './Contact'
+import Clouds from './Clouds'
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#ffffff',
+      main: '#f9f9f9',
+      dark: '#c6c6c6',
+      contrastText: '#000000',
+    },
+    secondary: {
+      light: '#57dd57',
+      main: '#00aa25',
+      dark: '#007900',
+      contrastText: '#ffffff',
+    },
+  },
+})
+
+const App = () => (
+  <Router>
+    <MuiThemeProvider theme={theme}>
+      <Clouds />
+      <Route path="/" exact component={LandingPage} />
+      <Route path="/about" exact component={About} />
+      <Route path="/experience" exact component={Experience} />
+      <Route path="/contact" exact component={Contact} />
+      <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+
+    </MuiThemeProvider>
+  </Router>
+)
 
 export default App;
