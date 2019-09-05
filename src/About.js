@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -7,10 +7,11 @@ import backgroundImage from './assets/vaughnPaulgerBackground.jpg';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
-import { render } from 'react-dom';
-import Gallery from 'react-grid-gallery';
+import vaughnPaulgerResume2019 from './assets/Vaughn-Paulger-Resume-2019.pdf';
+import homerSimpson from './assets/homer-simpson.png';
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: 'center',
@@ -20,69 +21,108 @@ const useStyles = makeStyles({
     width: '100%',
     overflow: 'hidden',
   },
-  contactContainer: {
-    height: '75%',
+  aboutContainer: {
+    height: '72%',
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      height: '80%',  
+      alignItems: 'flex-end',   
+    },
   },
-  contact: {
+  about: {
     background: 'rgba(0, 0, 0, 0.5)',
-    height: 500,
+    height: 550,
     width: '100%',
     display: 'flex',
-    // justifyContent: 'center',
+    // justifyContent: 'space-between',
     flexDirection: 'column',
+    zIndex: 1,
+    [theme.breakpoints.down('xs')]: {
+      height: '90%',   
+    },
   },
   navigation: {
-    alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
   },
-  // experienceSlider: {
-  //   display: 'flex',
-  //   // justifyContent: 'center',
-  //   alignItems: 'center',
-  //   width: '100%',
-  // },
-});
+  homer: {
+    width: 400,
+    [theme.breakpoints.down('xs')]: {
+      width: 300,
+    },
+  },
+  aboutContent: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  aboutResume: {
+    alignSelf: 'center',
+    fontFamily: 'abel',
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    marginTop: 15,
+    fontSize: 36,
+    textShadow: '2px 2px #000000',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '22px',   
+      border: '1px solid #0066ff',
+      borderRadius: 8,
+      marginTop: 65,
+    },
+  },
+  aboutResumeHover: {
+    alignSelf: 'center',
+    fontFamily: 'abel',
+    textDecoration: 'underline',
+    color: '#FFFFFF',
+    marginTop: 15,
+    textShadow: '2px 2px #000000',
+    fontSize: 36,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '22px',
+      marginTop: 65,   
+    },
+  },
+  resumeText: {
+    [theme.breakpoints.down('xs')]: {
+      margin: 0,
+      padding: 5,
+      paddingLeft: 15,
+      paddingRight: 15,
+    },
+  },
+}))
 
 const About = () => {
   const classes = useStyles();
 
-  const IMAGES =
-  [{
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 174,
-    isSelected: true,
-    caption: "After Rain (Jeshu John - designerspics.com)"
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 212,
-    tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-    caption: "Boats (Jeshu John - designerspics.com)"
-  },
-
-  {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 212
-  }]
+  //hover states
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
 
   return (
     <div className={classes.root}>
       <Logo/>
-      <div className={classes.contactContainer}>
-        <div className={classes.contact}>
-          <Navigation className={classes.navigation}/>
-          {/* <div className={classes.experienceSlider}> */}
-
-          <Gallery images={IMAGES}/>
-          {/* </div> */}
+      <div className={classes.aboutContainer}>
+        <div className={classes.about}>
+          <Navigation className={classes.navigation}/> 
+          <div className={classes.aboutContent}>
+            <a 
+              className={hovered ? classes.aboutResumeHover : classes.aboutResume}
+              onMouseEnter={toggleHover}
+              onMouseLeave={toggleHover} 
+              target='_blank' 
+              href={vaughnPaulgerResume2019}
+            >
+              <p className={classes.resumeText}>View My Resume</p>
+            </a>   
+            {/* <iframe style={{ width: 500, height: 400, alignSelf: 'center' }} src={vaughnPaulgerResume2019}></iframe>     */}
+            <img className={classes.homer} src={homerSimpson}/>
+          </div>
         </div>
       </div>
     </div>

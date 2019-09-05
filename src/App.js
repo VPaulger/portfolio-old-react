@@ -2,10 +2,12 @@ import React from 'react'
 import './App.css'
 
 //react router
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 //material-ui
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/styles'
+import { createMuiTheme } from '@material-ui/core';
+
 
 //components
 import LandingPage from './LandingPage'
@@ -34,16 +36,13 @@ const theme = createMuiTheme({
 
 const App = () => (
   <Router>
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <Clouds />
       <Route path="/" exact component={LandingPage} />
       <Route path="/about" exact component={About} />
       <Route path="/experience" exact component={Experience} />
       <Route path="/contact" exact component={Contact} />
-      <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-
-    </MuiThemeProvider>
+    </ThemeProvider>
   </Router>
 )
 

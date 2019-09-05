@@ -1,3 +1,10 @@
+/* slick */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* abel font */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
 body {
   margin: 0;
   padding: 0;
@@ -13,10 +20,8 @@ code {
     monospace;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Abel');
 
-
-/*beginning of smoke animation styling*/
+/*smoke animation*/
 body {
   -webkit-animation-duration: 10s;
   animation-duration: 10s;
@@ -98,16 +103,14 @@ body {
 }
 
 
-
-
-
+/* experience blocks */
 .experienceBlocks{
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 55px;
+  margin-bottom: 15px;
   position: relative;
   width: 301px;
   color: white;
@@ -117,6 +120,7 @@ body {
 
 .experienceBlocks a {
   width: 100%;
+  padding-bottom: 5px;
 }
 
 .experienceBlocks img{
@@ -132,7 +136,7 @@ body {
 
 .experienceBlocks h3 {
   font-size: 30px;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 5px;
   margin: 0;
   font-weight: 500;
@@ -146,7 +150,8 @@ body {
   height: 301px;
   width: 100%;
   overflow: hidden;
-  border: 1px solid #0066ff;
+  border: 1.5px solid #0066ff;
+  margin-bottom: 15px;
 }
 
 .image1 span{
@@ -163,16 +168,18 @@ body {
 .image1 span:nth-child(2) {
   transform:rotate(90deg);
   top: -50%;
+  left: 0%;
 }
 
 .image1 span:nth-child(3) {
   transform:rotate(180deg);
-  left: 50.5%;
+  left: 50%;
 }
 
 .image1 span:nth-child(4) {
   transform:rotate(270deg);
   top: 50%;
+  left: 0%;
 }
 
 .image1 span:before {
@@ -207,3 +214,46 @@ body {
   }  
 } 
 
+
+/* slick */
+.slick-dots li button:before {
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+
+/* media queries */
+@media only screen and (max-width: 600px) {
+  .experienceBlocks{
+    width: 251px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+  }
+
+  .image1 {
+    height: 251px;
+  }
+
+  .experienceBlocks h3 {
+    font-size: 22px;
+    padding-bottom: 0px;
+  }
+  .experienceBlocks p {
+    font-size: 14px;
+  }
+
+  .experienceBlocks a {
+    width: 100%;
+    border: 1px solid #0066ff;
+    border-radius: 8px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+  }
+}

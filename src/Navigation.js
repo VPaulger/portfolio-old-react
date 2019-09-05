@@ -1,14 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/styles'
 
 //react router
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-import vaughnPaulgerLogo from './assets/vaughnPaulgerLogo.png' // Tell Webpack this JS file uses this image
-import { relative } from 'path'
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
   },
   navContainer: {
@@ -58,33 +55,100 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     textDecoration: 'none',
+    [theme.breakpoints.down('xs')]: {
+      // width: 331.69,    
+      width: 300,
+    },
   },
-  linkStyle: {
+  navLink: {
     textDecoration: 'none',
     color: '#FFFFFF',
     fontSize: 18,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14,    
+    },
+  },
+  navHover: {
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    fontSize: 18,
+    textShadow: '0 0 4px #FFFFFF',
+    transition: 'all 0.05s linear',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14, 
+    },
+  },
+  activeNavLink: {
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    fontSize: 18,
+    textShadow: 'none',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14,    
+    },
   },
   navBox: {
     width: '100%',
-    height: '30px',
+    height: '35px',
     zIndex: '1',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    [theme.breakpoints.down('xs')]: {
+      height: '30px',    
+    },
   },
-})
+}))
 
 const Navigation = () => {
   const classes = useStyles()
 
+  //hover states
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
+
+  const [hovered2, setHovered2] = useState(false);
+  const toggleHover2 = () => setHovered2(!hovered2);
+
+  
+  const [hovered3, setHovered3] = useState(false);
+  const toggleHover3 = () => setHovered3(!hovered3);
+
+  
+
   return (
     <div className={classes.navContainer}>
       <div className={classes.navBox}>
-        <div className={classes.navBack}></div>
+        {/* <div className={classes.navBack}></div> */}
         <div className={classes.navList}>
-          <Link className={classes.linkStyle} to="/about">About</Link>
-          <Link className={classes.linkStyle} to="/experience">Experience</Link>
-          <Link className={classes.linkStyle} to="/contact">Contact</Link>
+          <NavLink
+            className={hovered ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover}         
+            to="/about"
+            activeClassName={classes.activeNavLink}
+          >
+            About
+          </NavLink>
+          <NavLink
+            className={hovered2 ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover2}
+            onMouseLeave={toggleHover2} 
+            to="/experience"
+            activeClassName={classes.activeNavLink}
+          >
+            Experience
+          </NavLink>          
+          <NavLink
+            className={hovered3 ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover3}
+            onMouseLeave={toggleHover3} 
+            to="/contact"
+            activeClassName={classes.activeNavLink}
+          >
+            Contact
+          </NavLink>
         </div>
       </div>
     </div>

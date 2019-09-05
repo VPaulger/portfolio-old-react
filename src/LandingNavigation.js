@@ -1,25 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/styles'
 
 //react router
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import vaughnPaulgerLogo from './assets/vaughnPaulgerLogo.png' // Tell Webpack this JS file uses this image
-import { relative } from 'path'
 
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
   },
   navContainer: {
-    height: 250,
+    height: 275,
     width: '100%',
     position: 'relative',
     zIndex: '1',
     fontFamily: 'Abel',
     textTransform: 'uppercase',
     letterSpacing: 3,
+    [theme.breakpoints.down('xs')]: {
+      height: 180,
+    },
   },
   navBackground: {
     background: '#000000',
@@ -30,9 +31,13 @@ const useStyles = makeStyles({
     position: 'absolute',
   },
   logo: {
-    paddingTop: 20,
+    marginTop: 35,
     height: 125,
     width: 'auto',
+    [theme.breakpoints.down('xs')]: {
+      height: 65,
+      marginTop: 25,
+    },
   },
   logoNavBox: {
     zIndex: '2',
@@ -58,46 +63,111 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     textDecoration: 'none',
+    [theme.breakpoints.down('xs')]: {
+      // width: 331.69,
+      width: 300,     
+    },
   },
-  linkStyle: {
+  navLink: {
     textDecoration: 'none',
     color: '#FFFFFF',
     fontSize: 18,
+    // width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14, 
+    },
+  },
+  navHover: {
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    fontSize: 18,
+    textShadow: '0 0 4px #FFFFFF',
+    transition: 'all 0.05s linear',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14, 
+    },
   },
   navBox: {
     width: '100%',
-    height: '30px',
-    paddingBottom: 20,
-    position: 'relative',
-    display: 'block',
-    margin: '0 auto',
+    height: '35px',
+    marginBottom: 35,
+    // position: 'relative',
     zIndex: '1',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 25,
+      height: '30px',
+    },
   },
-})
+  navTitle: { 
+    margin: 0, 
+    marginTop: '-35px', 
+    color: '#FFFFFF', 
+    fontSize: '26px', 
+    fontFamily: 'Abel',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '18px',
+      marginTop: '-20px', 
+    },
+  },
+}))
 
 const LandingNavigation = () => {
   const classes = useStyles()
+
+  //hover states
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
+
+  const [hovered2, setHovered2] = useState(false);
+  const toggleHover2 = () => setHovered2(!hovered2);
+
+  
+  const [hovered3, setHovered3] = useState(false);
+  const toggleHover3 = () => setHovered3(!hovered3);
 
   return (
     <div className={classes.navContainer}>
       <div className={classes.navBackground}></div>
       <div className={classes.logoNavBox}>
-        <Link className={classes.linkStyle} to="/">
+        <NavLink className={classes.navLink} to="/">
           <h1 style={{margin: 0}}><img className={classes.logo} src={vaughnPaulgerLogo} alt="vaughn Paulger" /></h1>
-        </Link>
-        <Link className={classes.linkStyle} to="/">
-          <h2 style={{margin: 0, marginTop: '-35px', color: '#FFFFFF', fontSize: '26px', fontFamily: 'Abel'}}>Full-Stack Developer</h2>
-        </Link>
+        </NavLink>
+        <NavLink className={classes.navLink} to="/">
+          <h2 className={classes.navTitle}>Full Stack Developer</h2>
+        </NavLink>
         
         <div className={classes.navBox}>
-          <div className={classes.navBack}></div>
           <div className={classes.navList}>
-            <Link className={classes.linkStyle} to="/about">About</Link>
-            <Link className={classes.linkStyle} to="/experience">Experience</Link>
-            <Link className={classes.linkStyle} to="/contact">Contact</Link>
+          <NavLink
+            className={hovered ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover} 
+            to="/about"
+          >
+            About
+          </NavLink>
+          <NavLink
+            className={hovered2 ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover2}
+            onMouseLeave={toggleHover2} 
+            to="/experience"
+          >
+            Experience
+          </NavLink>          
+          <NavLink
+            className={hovered3 ? classes.navHover : classes.navLink}
+            onMouseEnter={toggleHover3}
+            onMouseLeave={toggleHover3} 
+            to="/contact"
+          >
+            Contact
+          </NavLink>
           </div>
         </div>
       </div>
