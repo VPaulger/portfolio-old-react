@@ -221,7 +221,7 @@ const Experience = () => {
                   <span></span>
                   <img src={plannedParenthood}/>
                 </div>
-                <a className={classes.experienceLink} href="http://http://www.ppt.on.ca/" target="_blank">
+                <a className={classes.experienceLink} href="http://www.ppt.on.ca/" target="_blank">
                   <h3
                     className={hovered6 ? classes.experienceLinkHover : classes.experienceLink}
                     onMouseEnter={toggleHover6}
