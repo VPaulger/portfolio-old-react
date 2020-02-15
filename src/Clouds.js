@@ -75,28 +75,28 @@ class Clouds extends React.Component {
     //     enablejsapi: 0,
     //     iv_load_policy: 3
     //   };
-    var vid = [{
-        'videoId': '2b5QNj-BVhs',
-        'startSeconds': 515,
-        'endSeconds': 690,
-        'suggestedQuality': 'hd720'
-      }, {
-        'videoId': '9ge5PzHSS0Y',
-        'startSeconds': 465,
-        'endSeconds': 657,
-        'suggestedQuality': 'hd720'
-      }, {
-        'videoId': 'OWsCt7B-KWs',
-        'startSeconds': 0,
-        'endSeconds': 240,
-        'suggestedQuality': 'hd720'
-      }, {
-        'videoId': 'qMR-mPlyduE',
-        'startSeconds': 19,
-        'endSeconds': 241,
-        'suggestedQuality': 'hd720'
-      }],
-      randomvid = Math.floor(Math.random() * (vid.length - 1 + 1));
+    // var vid = [{
+    //     'videoId': '2b5QNj-BVhs',
+    //     'startSeconds': 515,
+    //     'endSeconds': 690,
+    //     'suggestedQuality': 'hd720'
+    //   }, {
+    //     'videoId': '9ge5PzHSS0Y',
+    //     'startSeconds': 465,
+    //     'endSeconds': 657,
+    //     'suggestedQuality': 'hd720'
+    //   }, {
+    //     'videoId': 'OWsCt7B-KWs',
+    //     'startSeconds': 0,
+    //     'endSeconds': 240,
+    //     'suggestedQuality': 'hd720'
+    //   }, {
+    //     'videoId': 'qMR-mPlyduE',
+    //     'startSeconds': 19,
+    //     'endSeconds': 241,
+    //     'suggestedQuality': 'hd720'
+    //   }]
+      // randomvid = Math.floor(Math.random() * (vid.length - 1 + 1));
     
     // function onYouTubePlayerAPIReady() {
     //   tv = new YT.Player('tv', {

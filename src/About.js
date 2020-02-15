@@ -7,7 +7,7 @@ import backgroundImage from './assets/vaughnPaulgerBackground.jpg';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
-import vaughnPaulgerResume2019 from './assets/Vaughn-Paulger-Resume-2019.pdf';
+import vaughnPaulgerResume from './assets/Vaughn-Paulger-Resume.pdf';
 import homerSimpson from './assets/homer-simpson.png';
 
 
@@ -116,7 +116,7 @@ const About = () => {
               onMouseEnter={toggleHover}
               onMouseLeave={toggleHover} 
               target='_blank' 
-              href={vaughnPaulgerResume2019}
+              href={vaughnPaulgerResume}
             >
               <p className={classes.resumeText}>View My Resume</p>
             </a>   

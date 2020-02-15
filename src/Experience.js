@@ -125,9 +125,11 @@ const Experience = () => {
     prevArrow: <SamplePrevArrow />,
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 700,
@@ -221,7 +223,7 @@ const Experience = () => {
                   <span></span>
                   <img src={plannedParenthood}/>
                 </div>
-                <a className={classes.experienceLink} href="http://http://www.ppt.on.ca/" target="_blank">
+                <a className={classes.experienceLink} href="http://www.ppt.on.ca/" target="_blank">
                   <h3
                     className={hovered6 ? classes.experienceLinkHover : classes.experienceLink}
                     onMouseEnter={toggleHover6}
