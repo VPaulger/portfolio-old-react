@@ -1,0 +1,44 @@
+.about {
+  background-image: url(../assets/vaughnPaulgerBackground.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    height: 80%;  
+    align-items: flex-end;   
+  }
+}
+
+.aboutContainerContent {
+  background: rgba(0, 0, 0, 0.5);
+  height: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  
+  @media only screen and (max-width: 600px) {
+    height: 90%;   
+  }
+}
+
+.aboutContent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}

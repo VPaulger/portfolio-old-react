@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import $ from 'jquery'
+import $ from 'jquery';
 
 class Clouds extends React.Component {
   // constructor(props) {
@@ -9,56 +9,68 @@ class Clouds extends React.Component {
 
   componentDidMount = () => {
     // var YT;
-    // window.onYouTubeIframeAPIReady = function() { 
+    // window.onYouTubeIframeAPIReady = function() {
     // YT = window.YT;
     // }
 
-    $(function() {
-      // "use strict";
-      var a = 0;
-      $('#tv').hide();
-      for (; a < 25; a += 1) {
-        setTimeout(function b() {
-          var a = Math.random() * 1e3 + 5e3,
-            c = $("<div />", {
-              "class": "smoke",
-              css: {
-                left: Math.random() * 1200,
-                backgroundSize: "contain",
-                width: Math.random() * 1200,
-                height: Math.random() * 1200
-              }
-            });
-          $(c).addClass("animated");
-          $(c).addClass("zoomIn");
-          $(c).addClass("rollOut");
-          $(c).appendTo("#viewport");
-          $.when($(c).animate({}, {
-              duration: a / 4,
-              easing: "linear",
-              queue: false,
-              complete: function() {
-                $(c).animate({}, {
-                  duration: a / 13,
-                  easing: "linear",
-                  queue: false
-                })
-              }
-            }),
-            $(c).animate({
-              bottom: $("#viewport").height()
-            }, {
-              duration: a / 0.5,
-              easing: "linear",
-              queue: false
-            })).then(
-            function() {
+    $(
+      (function () {
+        // "use strict";
+        var a = 0;
+        $('#tv').hide();
+        for (; a < 25; a += 1) {
+          setTimeout(function b() {
+            var a = Math.random() * 1e3 + 5e3,
+              c = $('<div />', {
+                class: 'smoke',
+                css: {
+                  left: Math.random() * 1200,
+                  backgroundSize: 'contain',
+                  width: Math.random() * 1200,
+                  height: Math.random() * 1200,
+                },
+              });
+            $(c).addClass('animated');
+            $(c).addClass('zoomIn');
+            $(c).addClass('rollOut');
+            $(c).appendTo('#viewport');
+            $.when(
+              $(c).animate(
+                {},
+                {
+                  duration: a / 4,
+                  easing: 'linear',
+                  queue: false,
+                  complete: function () {
+                    $(c).animate(
+                      {},
+                      {
+                        duration: a / 13,
+                        easing: 'linear',
+                        queue: false,
+                      }
+                    );
+                  },
+                }
+              ),
+              $(c).animate(
+                {
+                  bottom: $('#viewport').height(),
+                },
+                {
+                  duration: a / 0.5,
+                  easing: 'linear',
+                  queue: false,
+                }
+              )
+            ).then(function () {
               $(c).remove();
-              b()
-            })
-        }, Math.random() * 3e3)
-      }
-    }())
+              b();
+            });
+          }, Math.random() * 3e3);
+        }
+      })()
+    );
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/player_api';
     var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -96,8 +108,8 @@ class Clouds extends React.Component {
     //     'endSeconds': 241,
     //     'suggestedQuality': 'hd720'
     //   }]
-      // randomvid = Math.floor(Math.random() * (vid.length - 1 + 1));
-    
+    // randomvid = Math.floor(Math.random() * (vid.length - 1 + 1));
+
     // function onYouTubePlayerAPIReady() {
     //   tv = new YT.Player('tv', {
     //     events: {
@@ -107,12 +119,12 @@ class Clouds extends React.Component {
     //     playerVars: playerDefaults
     //   });
     // }
-    
+
     // function onPlayerReady() {
     //   tv.loadVideoById(vid[randomvid]);
     //   tv.mute();
     // }
-    
+
     // function onPlayerStateChange(e) {
     //   if (e.data === 1) {
     //     $('#tv').addClass('active');
@@ -120,12 +132,12 @@ class Clouds extends React.Component {
     //     tv.seekTo(vid[randomvid].startSeconds)
     //   }
     // }
-    
+
     // function vidRescale() {
-    
+
     //   var w = $(window).width() + 200,
     //     h = $(window).height() + 200;
-    
+
     //   if (w / h > 16 / 9) {
     //     tv.setSize(w, w / 16 * 9);
     //     $('.tv .screen').css({
@@ -138,19 +150,21 @@ class Clouds extends React.Component {
     //     });
     //   }
     // }
-  }
+  };
   render() {
     return (
-      <div id="wrap">
-        <div id="viewport">
-          <div class="tv">
-            <div class="screen mute" id="tv"></div>
+      <div id='wrap'>
+        <div id='viewport'>
+          <div className='tv'>
+            <div
+              className='screen mute'
+              id='tv'
+            ></div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-
 
 export default Clouds;
