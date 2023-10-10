@@ -1,0 +1,173 @@
+.experience {
+  background-image: url('../assets/vaughnPaulgerBackground.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.experienceContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    height: 80%;
+    align-items: flex-end;
+  }
+}
+
+.experienceContainerSlider {
+  background: rgba(0, 0, 0, 0.5);
+  height: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    height: 90%;
+  }
+}
+
+.experienceSlider {
+  width: 95%;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1280px) {
+    width: 92%;
+  }
+  @media only screen and (max-width: 960px) {
+    width: 90%;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 85%;
+  }
+}
+
+.experienceBlockBox {
+  display: flex !important;
+  justify-content: center;
+}
+
+.experienceBlockBox a {
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
+}
+
+.experienceBlocks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 55px;
+  margin-bottom: 15px;
+  position: relative;
+  width: 400px;
+  color: white;
+  font-family: 'Abel';
+  z-index: 10;
+  cursor: pointer;
+
+  &:hover h3 {
+    text-decoration: underline;
+  }
+}
+
+.experienceBlocks a {
+  width: 100%;
+  padding-bottom: 5px;
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
+}
+
+.experienceBlocks p {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  text-shadow: 2px 2px #000000;
+}
+
+.experienceBlocks h3 {
+  font-size: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px #000000;
+  text-transform: uppercase;
+}
+
+
+.image1 {
+  position: relative;
+  height: 301px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: white;
+}
+
+.image1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 0;
+}
+
+.full-width img {
+  height: unset;
+}
+
+/* slick */
+.slick-dots li button:before {
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .experienceBlocks {
+    width: 251px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+  }
+
+  .image1 {
+    height: 251px;
+  }
+
+  .experienceBlocks h3 {
+    font-size: 22px;
+    padding-bottom: 0px;
+  }
+
+  .experienceBlocks p {
+    font-size: 14px;
+  }
+
+  .experienceBlocks a {
+    width: 100%;
+    border-radius: 8px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+  }
+}

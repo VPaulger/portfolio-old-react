@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/styles": "^3.0.0-alpha.10",
     "jquery": "^3.4.0",
     "react": "^16.8.3",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
+    "react-image-lightbox": "^5.1.4",
     "react-items-carousel": "^2.3.6",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.24.0",
+    "sass": "^1.68.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
@@ -27,8 +27,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "babel-eslint": "9.0.0"
-  }
+  ]
 }
